@@ -1,0 +1,76 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "7. Bonus Score", "ConsoleApp1\7. Bonus Score.csproj", "{7D4EC065-6922-4FC6-B28D-F335D4576FEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8. Sum seconds", "..\Логически проверки if - else - Homework\8. Sum seconds\8. Sum seconds.csproj", "{7D9EDF25-DE6D-43DC-8779-EE21AB430353}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "9. Metric Converter", "..\Логически проверки if - else - Homework\Metric Converter\9. Metric Converter.csproj", "{BB18A91B-DA60-40B0-A77D-E59CEBF54E38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. Password guess", "..\Логически проверки if - else - Homework\10. Password guess\10. Password guess.csproj", "{C7C55609-4C7D-4912-9975-0C641E78CE5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11. Number 100 - 200", "..\Логически проверки if - else - Homework\Number 100 - 200\11. Number 100 - 200.csproj", "{8F9A2F6E-E2FD-4014-9CB1-B12DB0658DB3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12. Equal words", "..\Логически проверки if - else - Homework\12. Equal words\12. Equal words.csproj", "{21F160CE-8992-46EC-91E2-02C7F4F72B74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "13. Speed Info", "..\Логически проверки if - else - Homework\13. Speed Info\13. Speed Info.csproj", "{6B3DA15F-3947-454E-8847-01E2A7DA6BA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14. Area of figures", "..\Логически проверки if - else - Homework\14. Area of figures\14. Area of figures.csproj", "{BAEA26D4-F76E-4991-80E7-A42F1FC78CE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15. time + 15 min", "..\Логически проверки if - else - Homework\15. time + 15 min\15. time + 15 min.csproj", "{213D8FC8-0DC6-47A2-81A0-6506217DCCC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16. 3 equal numbers", "..\Логически проверки if - else - Homework\16. 3 equal numbers\16. 3 equal numbers.csproj", "{0AF6D50A-856F-4D3E-B8C0-C02CB6410497}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D4EC065-6922-4FC6-B28D-F335D4576FEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D4EC065-6922-4FC6-B28D-F335D4576FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D4EC065-6922-4FC6-B28D-F335D4576FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D4EC065-6922-4FC6-B28D-F335D4576FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D9EDF25-DE6D-43DC-8779-EE21AB430353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D9EDF25-DE6D-43DC-8779-EE21AB430353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D9EDF25-DE6D-43DC-8779-EE21AB430353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D9EDF25-DE6D-43DC-8779-EE21AB430353}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB18A91B-DA60-40B0-A77D-E59CEBF54E38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB18A91B-DA60-40B0-A77D-E59CEBF54E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB18A91B-DA60-40B0-A77D-E59CEBF54E38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB18A91B-DA60-40B0-A77D-E59CEBF54E38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7C55609-4C7D-4912-9975-0C641E78CE5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7C55609-4C7D-4912-9975-0C641E78CE5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7C55609-4C7D-4912-9975-0C641E78CE5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7C55609-4C7D-4912-9975-0C641E78CE5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F9A2F6E-E2FD-4014-9CB1-B12DB0658DB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F9A2F6E-E2FD-4014-9CB1-B12DB0658DB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F9A2F6E-E2FD-4014-9CB1-B12DB0658DB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F9A2F6E-E2FD-4014-9CB1-B12DB0658DB3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21F160CE-8992-46EC-91E2-02C7F4F72B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21F160CE-8992-46EC-91E2-02C7F4F72B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21F160CE-8992-46EC-91E2-02C7F4F72B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21F160CE-8992-46EC-91E2-02C7F4F72B74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B3DA15F-3947-454E-8847-01E2A7DA6BA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B3DA15F-3947-454E-8847-01E2A7DA6BA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B3DA15F-3947-454E-8847-01E2A7DA6BA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B3DA15F-3947-454E-8847-01E2A7DA6BA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAEA26D4-F76E-4991-80E7-A42F1FC78CE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAEA26D4-F76E-4991-80E7-A42F1FC78CE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAEA26D4-F76E-4991-80E7-A42F1FC78CE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAEA26D4-F76E-4991-80E7-A42F1FC78CE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{213D8FC8-0DC6-47A2-81A0-6506217DCCC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{213D8FC8-0DC6-47A2-81A0-6506217DCCC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{213D8FC8-0DC6-47A2-81A0-6506217DCCC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{213D8FC8-0DC6-47A2-81A0-6506217DCCC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AF6D50A-856F-4D3E-B8C0-C02CB6410497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF6D50A-856F-4D3E-B8C0-C02CB6410497}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF6D50A-856F-4D3E-B8C0-C02CB6410497}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF6D50A-856F-4D3E-B8C0-C02CB6410497}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
