@@ -10,87 +10,48 @@ namespace _02.Icarus
     {
         static void Main(string[] args)
         {
-            List<int> planes = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
-            int startPos = int.Parse(Console.ReadLine());
-            var inputLine = string.Empty;
-            int damage = 1;
-            int lastPos = 0;
-            int testCount = 0;
-            bool changePos = false;
+            var plane = Console.ReadLine().Split(' ').Select(int.Parse).ToList();
+            var startPosition = int.Parse(Console.ReadLine());
+            var command = string.Empty;
+            var damage = 1;
+            var currentPosition = startPosition;
 
-            while ((inputLine = Console.ReadLine()) != "Supernova")
+            while ((command = Console.ReadLine()) != "Supernova")
             {
-                string[] directonData = inputLine.Split(' ');
-                string direction = directonData[0];
-                int steps = int.Parse(directonData[1]);
+                var directionArgs = command.Split(' ');
+                var direction = directionArgs[0];                
+                var steps = int.Parse(directionArgs[1]);    
 
-
-                switch (direction)
+                for (int i = 0; i < steps; i++)
                 {
-                    case "right":
-                        if (changePos)
-                        {
-                            startPos = lastPos;
-                        }
+                    if (direction == "left")
+                    {
+                        currentPosition -= 1;
+                    }
+                    else
+                    {
+                        currentPosition += 1;
+                    }                    
 
-                        changePos = true;
-
-                        for (int i = startPos; i < startPos + steps; i++)
-                        {
-                            if (i >= planes.Count - 1)
-                            {
-                                steps += startPos - (planes.Count - 1);
-                                startPos = -1;
-                                i = - 1;
-                                damage++;                                
-                            }
-                            if (planes[i + 1] > 0 && planes[i + 1] < damage)
-                            {
-                                planes[i + 1] = 0;
-                            }
-                            else if (planes[i + 1] > 0)
-                            {
-                                planes[i + 1] -= damage;
-                            }
-
-                            testCount++;
-                            lastPos = i + 1;
-                        }                        
-                        break;
-                    case "left":
-                        if (changePos)
-                        {
-                            startPos = lastPos;
-                        }
-
-                        changePos = true;
-
-                        for (int i = startPos; i > startPos - steps; i--)
-                        {
-                            if (i <= 0)
-                            {
-                                steps = (planes.Count - 1) - startPos + 1;
-                                startPos = planes.Count;
-                                i = planes.Count;
-                                damage++;
-                            }
-                            if (planes[i - 1] > 0 && planes[i - 1] < damage)
-                            {
-                                planes[i - 1] = 0;
-                            }
-                            else if (planes[i - 1] > 0)
-                            {
-                                planes[i - 1] -= damage;
-                            }
-
-                            testCount++;
-                            lastPos = i - 1;
-                        }
-                        
-                        break;
+                    if (currentPosition > plane.Count - 1)
+                    {
+                        currentPosition = 0;                        
+                        damage++;
+                        plane[currentPosition] -= damage;
+                    }
+                    else if (currentPosition < 0)
+                    {
+                        currentPosition = plane.Count - 1;                       
+                        damage++;
+                        plane[currentPosition] -= damage;
+                    }
+                    else
+                    {
+                        plane[currentPosition] -= damage;
+                    }
                 }
             }
-            Console.WriteLine(string.Join(" " , planes));
+            Console.WriteLine(string.Join(" ", plane));
         }
     }
 }

@@ -10,86 +10,64 @@ namespace _02.Ladybugs
     {
         static void Main(string[] args)
         {
-            int size = int.Parse(Console.ReadLine().Trim());
-            int[] positions = Console.ReadLine().Split(new char[] { ' ', '\t' }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
-            List<int> field = new List<int>();
+            var fieldSize = int.Parse(Console.ReadLine());
+            var field = new List<int>();
+            var initialPositions = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+            var command = string.Empty;
 
-            for (int i = 0; i < size; i++)
+            for (int i = 0; i < fieldSize; i++)
             {
-                field.Add(0);                
-            }
-            for (int i = 0; i < positions.Length; i++)
-            {
-                if (positions[i] >= 0 && positions[i] <= field.Count - 1)
+                if (initialPositions.Contains(i))
                 {
-                    field[positions[i]] = 1;
+                    field.Add(1);
+                }
+                else
+                {
+                    field.Add(0);
+                }
+            }
+
+            while ((command = Console.ReadLine()) != "end")
+            {
+                var commandArgs = command.Split(' ');
+                var ladyBugPosition = int.Parse(commandArgs[0]);
+                var direction = commandArgs[1];
+                var steps = int.Parse(commandArgs[2]);
+
+                if (direction == "left")
+                {
+                    steps *= -1;
+                }
+
+                if (ladyBugPosition >= 0 && ladyBugPosition < field.Count && field[ladyBugPosition] == 1 && steps != 0)
+                {
+                    field[ladyBugPosition] = 0;
+                    var flyLength = ladyBugPosition + steps;
+                    var isFlyingInField = true;
+
+                    while (isFlyingInField == true)
+                    {
+                        if (flyLength >= 0 && flyLength < field.Count)
+                        {
+                            if (field[flyLength] == 0)
+                            {
+                                field[flyLength] = 1;
+                                isFlyingInField = false;
+                            }
+                            else
+                            {
+                                flyLength += steps;
+                            }
+                        }
+                        else
+                        {
+                            isFlyingInField = false;
+                        }
+                    }
                 }                
             }
-
-            while (true)
-            {
-                string commandLine = Console.ReadLine();
-                if (commandLine == "end")
-                {
-                    break;
-                }
-                string[] commandArr = commandLine.Split(' ');
-                long start = long.Parse(commandArr[0]);
-                string command = commandArr[1];
-                long count = long.Parse(commandArr[2]);
-
-                switch (command)
-                {
-                    case "right":
-                        field = MoveRight(field, start, count);
-                        break;
-                    case "left":
-                        field = MoveLeft(field, start, count);
-                        break;
-                }
-            }
             Console.WriteLine(string.Join(" ", field));
-        }
-
-        static List<int> MoveLeft(List<int> field, long start, long count)
-        {
-            count = count * -1;
-            if (start >= 0 && start < field.Count)
-            {
-                field[(int)start] = 0;
-            }
-            if (start + count >= 0 && start + count < field.Count)
-            {
-                for (long i = start + count; i >= 0; i += count)
-                {
-                    if (field[(int)i] == 0)
-                    {
-                        field[(int)i] = 1;
-                        break;
-                    }
-                }
-            }
-            return field;
-        }
-
-        static List<int> MoveRight(List<int> field, long start, long count)
-        {
-            if (start >= 0 && start < field.Count)
-            {
-                field[(int)start] = 0;
-            }
-            if (start + count >= 0 && start + count < field.Count)
-            {
-                for (long i = start + count; i < field.Count; i+=count)
-                {
-                    if (field[(int)i] == 0)
-                    {
-                        field[(int)i] = 1;
-                        break;
-                    }
-                }
-            }
-            return field;
+            //Console.WriteLine(int.MaxValue);
         }
     }
 }

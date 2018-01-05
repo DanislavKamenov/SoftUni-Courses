@@ -11,85 +11,84 @@ namespace _02.Command_Interpreter
     {
         static void Main(string[] args)
         {
-            List<string> manipulate = new List<string>(Console.ReadLine().Split(new char[] { ' ', '\r', 'n', '\t', '\f', '\v' }, StringSplitOptions.RemoveEmptyEntries));
-            string[] commandLine = Console.ReadLine().Split(' ');
+            List<string> field = Console.ReadLine().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            string command = string.Empty;
 
-            while (commandLine[0] != "end")
+            while ((command = Console.ReadLine()) != "end")
             {
-                int start = 0;
+                string[] commandArgs = command.Split(' ');
+                string action = commandArgs[0];
+                int startIndex = 0;
                 int count = 0;
-                long end = 0;
-                if (commandLine[0] == "reverse" || commandLine[0] == "sort")
+
+                switch (action)
                 {
-                    start = int.Parse(commandLine[2]);
-                    count = int.Parse(commandLine[4]);
-                    end = count + start;
-                    if (commandLine[2] == string.Empty || commandLine[4] == string.Empty)
-                    {
-                        Console.WriteLine("Invalid input parameters.");
-                        commandLine = Console.ReadLine().Split(' ');
-                        continue;
-                    }                    
-                }
-                else if (commandLine[0] == "rollLeft" || commandLine[0] == "rollRight")
-                {
-                    count = int.Parse(commandLine[1]);
-                    if (commandLine[1] == string.Empty)
-                    {
-                        Console.WriteLine("Invalid input parameters.");
-                        commandLine = Console.ReadLine().Split(' ');
-                        continue;
-                    }                    
-                } 
-                switch (commandLine[0])
-                {
-                    case "reverse":                          
-                        if (start < 0 || start > manipulate.Count - 1 || count < 0 || count > manipulate.Count - 1 || end > manipulate.Count - 1)
-                        {
-                            Console.WriteLine("Invalid input parameters.");
-                            break;
+                    case "reverse":
+                        startIndex = int.Parse(commandArgs[2]);
+                        count = int.Parse(commandArgs[4]);
+
+                        if (startIndex >= 0 && startIndex <= field.Count - 1 && count >= 0 && startIndex + count - 1 <= field.Count - 1)
+                        {  
+                            field.Reverse(startIndex, count);
                         }
                         else
                         {
-                            manipulate.Reverse(start, count);
+                            Console.WriteLine("Invalid input parameters.");
                         }
                         break;
-                    case "sort":                       
-                        if (start < 0 || start > manipulate.Count - 1 || count < 0 || count > manipulate.Count - 1 || end > manipulate.Count - 1)
+                    case "sort":
+                        startIndex = int.Parse(commandArgs[2]);
+                        count = int.Parse(commandArgs[4]);
+
+                        if (startIndex >= 0 && startIndex <= field.Count - 1 && count >= 0 && startIndex + count - 1 <= field.Count - 1)
+                        {
+                            var sorted = field.Skip(startIndex).Take(count).ToList();
+                            field.RemoveRange(startIndex, count);
+                            sorted.Sort();
+                            field.InsertRange(startIndex, sorted);
+                        }
+                        else
                         {
                             Console.WriteLine("Invalid input parameters.");
-                            break;
-                        }
-                        List<string> toSort = new List<string>();
-                        for (int i = 0; i < end; i++)
-                        {
-                            toSort.Add(manipulate[start + i]);
-                        }
-                        toSort.Sort();
-                        manipulate.RemoveRange(start, count);
-                        manipulate.InsertRange(start, toSort);
-                        break;
-                    case "rollRight":                        
-                        for (int i = 0; i < count; i++)
-                        {
-                            string toShift = manipulate[manipulate.Count - 1];
-                            manipulate.RemoveAt(manipulate.Count - 1);
-                            manipulate.Insert(0, toShift);
                         }
                         break;
-                    case "rollLeft":                        
-                        for (int i = 0; i < count; i++)
+                    case "rollLeft":
+                        count = int.Parse(commandArgs[1]);
+
+                        if (count >= 0)
+                        { 
+                            for (int i = 0; i < count % field.Count; i++)
+                            {
+                                string toShift = field[0];
+                                field.RemoveAt(0);
+                                field.Insert(field.Count, toShift);
+                            }
+                        }
+                        else
                         {
-                            string toShift = manipulate[0];
-                            manipulate.RemoveAt(0);
-                            manipulate.Insert(manipulate.Count, toShift);
+                            Console.WriteLine("Invalid input parameters.");
+                        }
+                        break;
+                    case "rollRight":
+                        count = int.Parse(commandArgs[1]);
+
+                        if(count >= 0)
+                        {                             
+                            for (int i = 0; i < count % field.Count; i++)
+                            {
+                                string toShift = field[field.Count - 1];
+                                field.RemoveAt(field.Count - 1);
+                                field.Insert(0, toShift);
+                            }                            
+                        }
+                        else
+                        {
+                            Console.WriteLine("Invalid input parameters.");
                         }
                         break;
                 }
-                commandLine = Console.ReadLine().Split(' ');
-
             }
-            Console.WriteLine($"[{string.Join(", ", manipulate)}]");
+            Console.WriteLine($"[{string.Join(", ", field)}]");
         }
     }
 }
