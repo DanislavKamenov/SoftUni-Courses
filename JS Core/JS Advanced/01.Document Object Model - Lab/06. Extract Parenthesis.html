@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function solve(id) {
+        let element = document.getElementById(id).textContent;
+        let regex = /\((.+?)\)/g;
+        let match = regex.exec(element);
+        let output = [];
+        while (match) {
+            output.push(match[1]);
+            match = regex.exec(element);
+        }
+        return output.join('; ')
+    }
+</script>
+</body>
+</html>
