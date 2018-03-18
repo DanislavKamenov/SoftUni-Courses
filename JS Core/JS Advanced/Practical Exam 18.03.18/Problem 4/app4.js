@@ -64,7 +64,7 @@ class PaymentManager {
                 
                 let delBtn = delBtnDefinition.find('button');
                 
-                delBtn.on('click', (event) => {$(event.target).parent().parent().remove()})
+                delBtn.on('click', () => {bodyTr.remove()})
             }
         });
 
