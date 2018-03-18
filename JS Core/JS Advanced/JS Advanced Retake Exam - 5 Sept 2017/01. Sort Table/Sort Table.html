@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sort Table</title>
+    <style>
+        body {
+            padding: 30px;
+        }
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 5px 20px;
+        }
+        th {
+            background: #cccccc;
+        }
+        tr:nth-child(odd) {
+            background: #eeeeee;
+        }
+        tr:nth-child(even) {
+            background: #dddddd;
+        }
+        a {
+            color: black;
+            text-decoration: none;
+        }
+        a:hover {
+            color: white;
+        }
+        .active {
+            color: #99ff99;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+
+<h1>Sort Table</h1>
+<table id="products">
+    <thead>
+    <tr>
+        <th>Name <a href="javascript:sort(0, false)">&#x25B2;</a> <a href="javascript:sort(0, true)">&#x25BC;</a></th>
+        <th>Price <a href="javascript:sort(1, false)">&#x25B2;</a> <a href="javascript:sort(1, true)">&#x25BC;</a></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Potatoes</td>
+        <td>0.89</td>
+    </tr>
+    <tr>
+        <td>Tomatoes</td>
+        <td>2.30</td>
+    </tr>
+    <tr>
+        <td>Bananas</td>
+        <td>1.79</td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    function sort(colIndex, descending) {
+        let products = $('#products').find('> tbody').children();
+        let productsArr = [];
+        for (let i = 0; i < products.length; i++) {
+            let priceAndName = $($(products[i]).html());
+            let name = priceAndName[0];
+            let price;
+            if (priceAndName.length === 3) {
+                price = priceAndName[2];
+            } else {
+                price = priceAndName[1];
+            }
+            productsArr[i] = [];
+            productsArr[i].push($(name).text());
+            productsArr[i].push($(price).text());
+        }
+        if (colIndex === 0) {
+            switch (descending) {
+                case true:
+                    productsArr.sort((a, b) => b[0].localeCompare(a[0]));
+                    break;
+                case false:
+                    productsArr.sort((a, b) => a[0].localeCompare(b[0]));
+                    break;
+            }
+        } else if (colIndex === 1) {
+            switch (descending) {
+                case true:
+                    productsArr.sort((a, b) => Number(b[1]) - Number(a[1]));
+                    break;
+                case false:
+                    productsArr.sort((a, b) => Number(a[1]) - Number(b[1]));
+                    break;
+            }
+        }
+        let tableBody = $('#products').find('> tbody');
+        tableBody.empty();
+        for (let [name, price] of productsArr) {
+            $(`<tr><td>${name}</td><td>${price}</td></tr>`).appendTo(tableBody);
+        }
+    }
+</script>
+
+</body>
+</html>
