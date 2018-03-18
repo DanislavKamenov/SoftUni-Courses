@@ -10,8 +10,7 @@ class PaymentProcessor {
             this.options.types.includes(type)) {
             if (Number(value) && value !== null) {
                 if (!this.list.has(id)) {
-                    this.list.set(id, {name, type, value});
-                    return;
+                    return this.list.set(id, {name, type, value});                    
                 }
             }
         }
