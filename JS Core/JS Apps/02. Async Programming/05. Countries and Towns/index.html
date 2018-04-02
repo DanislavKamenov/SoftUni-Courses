@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="solution.js"></script>
+    <style>
+        #results {
+            background-color: #FFFFFF;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        #results tr {
+            background-color: #AAAAAA;
+            padding: 5vh;
+            font-size: 1.5vw;
+        }
+        #results tr:nth-child(odd) {
+            background-color: #808080;
+        }
+        #results tr:first-child {
+            background-color: #000000;
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 2vw;
+        }
+        #results tr th {
+            padding: 1vw;
+        }
+        #results tr td {
+            padding: 1vw;
+            transition: font-size 0.2s;
+        }
+        #results tr:not(:first-child):hover {
+            background-color: #F0F8FF;
+            color: #000000;
+            font-size: 2.25vw;
+        }
+    </style>
+</head>
+<body>
+<form id="countryCreate">
+    <label for="countryName">Country</label>
+    <input type="text" id="countryName"/>
+    <button id="btnCreateCountry">Create</button>
+</form>
+<form id="townCreate">
+    <label for="townName">Town name</label>
+    <input type="text" id="townName"/>
+    <label for="parentCountry">Country name</label>
+    <input type="text" id="parentCountry"/>
+    <button id="btnCreateTown">Create</button>
+</form>
+<button id="load">Load</button>
+<table id="results">
+    <thead>
+    <tr>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+</body>
+<script>attachEvents()</script>
+</html>
