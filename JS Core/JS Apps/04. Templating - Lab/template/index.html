@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script id="entry-template" type="text/x-handlebars-template">
+    <div class="entry">
+        <h1>{{title}}</h1>
+        <div class="body">{{body}}</div>
+    </div>
+</script>
+<body>
+    <script>
+        let source = $("#entry-template").html();
+        let template = Handlebars.compile(source);
+        let context = {
+            title: "Hello",
+            body: "I am a body"
+        };
+
+        let html = template(context);
+        $('body').append(html);
+    </script>
+</body>
+</html>
