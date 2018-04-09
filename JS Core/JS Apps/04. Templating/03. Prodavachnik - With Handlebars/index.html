@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prodavachnik</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="scripts/webApi.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/displayNotifications.js"></script>
+    <script src="scripts/attachEvents.js"></script>
+    <script src="scripts/advertController.js"></script>
+    <script src="scripts/loadTemplates.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles/prodavachnik.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
+</head>
+
+<body>
+<header id="menu" class="menu"></header>
+<div id="notifications">
+    <section id="loadingBox" class="loadingBox">Loading ...</section>
+    <section id="infoBox" class="infoBox">Info</section>
+    <section id="errorBox" class="errorBox">Error</section>
+</div>
+<main>
+
+</main>
+<footer>Prodavachnik - Simple SPA Application</footer>
+</body>
+<script>
+    $(() =>startApp());
+</script>
+</html>
