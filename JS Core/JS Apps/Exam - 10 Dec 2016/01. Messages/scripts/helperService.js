@@ -49,24 +49,26 @@ let helpers = (function () {
         }
     }
 
-    function calcTime(dateIsoFormat) {
-        let diff = new Date - (new Date(dateIsoFormat));
-        diff = Math.floor(diff / 60000);
-        if (diff < 1) return 'less than a minute';
-        if (diff < 60) return diff + ' minute' + pluralize(diff);
-        diff = Math.floor(diff / 60);
-        if (diff < 24) return diff + ' hour' + pluralize(diff);
-        diff = Math.floor(diff / 24);
-        if (diff < 30) return diff + ' day' + pluralize(diff);
-        diff = Math.floor(diff / 30);
-        if (diff < 12) return diff + ' month' + pluralize(diff);
-        diff = Math.floor(diff / 12);
-        return diff + ' year' + pluralize(diff);
-        function pluralize(value) {
-            if (value !== 1) return 's';
-            else return '';
+    function formatDate(dateISO8601) {
+        let date = new Date(dateISO8601);
+        if (Number.isNaN(date.getDate()))
+            return '';
+        return date.getDate() + '.' + padZeros(date.getMonth() + 1) +
+            "." + date.getFullYear() + ' ' + date.getHours() + ':' +
+            padZeros(date.getMinutes()) + ':' + padZeros(date.getSeconds());
+
+        function padZeros(num) {
+            return ('0' + num).slice(-2);
         }
     }
+
+    function formatSender(name, username) {
+        if (!name)
+            return username;
+        else
+            return username + ' (' + name + ')';
+    }
+
 
 
     function getCommonPartials() {
@@ -78,7 +80,7 @@ let helpers = (function () {
 
     function getCommonContext(ctx) {
         ctx.isAuth = auth.is();
-        ctx.name = sessionStorage.getItem('name');
+        ctx.username = sessionStorage.getItem('username');
         return ctx;
     }
 
@@ -87,5 +89,7 @@ let helpers = (function () {
         signOutUser,
         getCommonPartials,
         getCommonContext,
+        formatDate,
+        formatSender,
     }
 })();

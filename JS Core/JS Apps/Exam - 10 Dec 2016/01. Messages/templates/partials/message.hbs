@@ -1,0 +1,16 @@
+<tr>
+    {{#unless isSender}}
+        <td>{{sender}}</td>
+        <td>{{text}}</td>
+        <td>{{date}}</td>
+    {{else}}
+        <td>{{recipient_username}}</td>
+        <td>{{text}}</td>
+        <td>{{date}}</td>
+        <td>
+            <form action="#/delete/:{{_id}}" method="post">
+                <input type="submit" value="Delete" />
+            </form>
+        </td>
+    {{/unless}}
+</tr>
