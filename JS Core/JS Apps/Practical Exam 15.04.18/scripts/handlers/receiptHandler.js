@@ -19,7 +19,22 @@ HANDLERS.getEditor = async (ctx) => {
 
     ctx.loadPartials(partials)
         .then(function () {
-            this.partial('./templates/receipt/createReceipt.hbs');
+            this.partial('./templates/receipt/createReceipt.hbs')
+                .then(() => {
+                    $('[name="qty"], [name="price"]').on('input', function () {
+                        let qty = $('[name="qty"]');
+                        let price = $('[name="price"]');
+                        let subTotal = $('#subTotal');
+                        let total = $('#totalText');
+                        let sub = Number(qty.val()) * Number(price.val());
+
+                        if (!isNaN(Number(qty.val())) && !isNaN(Number(price.val()))) {
+                            subTotal.text('Sub-total: ' + sub);
+                            total.text(entries.total + sub);
+                        }
+                    })
+                });
+
         });
 };
 
