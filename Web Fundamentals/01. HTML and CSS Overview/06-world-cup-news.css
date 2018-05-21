@@ -1,0 +1,26 @@
+#wrapper {
+    background-color: #a6e1ec;
+    width: 700px;
+    height: 730px;
+    border: 1px solid #000000;
+    padding: 10px;
+}
+
+img {
+    width: 200px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+li {
+    width: 600px;
+    border: 1px solid #000000;
+    margin-bottom: 5px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.text {
+    color: #2EA620;
+}
+
