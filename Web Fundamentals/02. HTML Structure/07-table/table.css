@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,900');
+
+body {
+    font-family: "Lato", sans-serif;
+}
+
+table {
+    color: #333333;
+    border-spacing: unset;
+    align-content: center;
+    margin:  0 auto;
+    border: 1px solid black;
+}
+
+th {
+    padding: 5px 30px 5px 10px;
+    font-size: 18px;
+    margin: 0;
+    text-align: left;
+    background-color: #84b3ad;
+    font-weight: normal;
+    width: 150px;
+}
+
+thead th {
+    color: #ffffff;
+    background-color: #90b4d6;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+td {
+    padding: 5px 30px 5px 10px;
+    font-size: 18px;
+    margin: 0;
+    text-align: left;
+    background-color: #84b3ad;
+    width: 160px;
+}
+
+tr:nth-child(even) td, tr:nth-child(even) th {
+    background-color: #689ad8;
+}

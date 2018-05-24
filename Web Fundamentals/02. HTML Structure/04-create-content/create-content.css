@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,900');
+
+main{
+    font-family: Lato, sans-serif;
+    margin: 50px 200px;
+    max-width: 1060px;
+    padding: 0 10px;
+}
+
+main img{
+    float: left;
+    width: 180px;
+    height: 100px;
+    margin: 10px 50px 0 0;
+}
+
+main h2{
+    font-size: 120%;
+    text-transform: uppercase;
+    color: #234465;
+}
+
+main p{
+    font-size: 16px;
+    color: #333;
+    letter-spacing: 0;
+    margin-bottom: 5px;
+    width: 800px;
+}

@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,900');
+
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+    font-family: Lato, sans-serif;
+    color: #fff;
+}
+
+header{
+    background-color: rgb(41, 63, 80);
+    padding: 20px 20px 20px 10px;
+}
+
+nav{
+    display: inline-block;
+}
+
+nav ul li{
+    display: inline-block;
+    padding: 10px;
+}
+
+header nav ul li a{
+    font-family: Lato, sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: rgb(100, 136, 128);
+}
+
+.date{
+    color: rgb(100, 136, 128);
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+header h1{
+    margin: 90px auto;
+    font-size: 50px;
+    font-weight: 100;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+header h2{
+    margin: 10px auto;
+    color: rgb(100, 136, 128);
+    font-size: 35px;
+    font-weight: 100;
+    text-align: center;
+}
+
+header p{
+    font-size: 23px;
+    font-weight: 100;
+    text-align: center;
+}
+
+header div{
+    text-align: center;
+}
+
+header button{
+    background: none;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+header button:hover{
+    background-color: #ffffff;
+    color: rgb(100, 136, 128);
+}
+
+main{
+    color: rgb(169, 178, 185);
+    padding-right: 350px;
+    padding-left: 350px;
+
+}
+
+main section{
+    display: inline-block;
+    width: 280px;
+    padding: 50px 0;
+}
+
+section a{
+    text-decoration: none;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: rgb(169, 178, 185);
+}
+
+section.content.middle{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+section h3{
+    padding-bottom: 30px;
+    font-weight: normal;
+}
+
+section img{
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+footer{
+    background-color: rgb(41, 63, 80);
+    overflow: hidden;
+    height: 100px;
+    padding: 0 80px 0 70px;
+}
+
+footer span{
+    font-weight: 100;
+    font-size: 130%;
+    line-height: 100px;
+}
+
+footer nav{
+    float: right;
+    margin-right: 50px;
+}
+
+footer nav ul{
+   horiz-align: right;
+}
+
+footer nav ul li a{
+    font-family: Lato, sans-serif;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 100;
+    color: #ffffff;
+    line-height: 90px;
+}
