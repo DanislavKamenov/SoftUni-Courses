@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: Lato, sans-serif;
+    font-size: 14px;
+    background: url("images/dark-wood.jpg");
+}
+
+header, nav, main{
+    margin: 0 380px;
+}
+
+header{
+    background: url("images/header-page.jpg") no-repeat center;
+    text-align: right;
+    height: 130px;
+    line-height: 130px;
+}
+
+header h1{
+    font-weight: 800;
+    margin-right: 10px;
+}
+
+nav{
+    margin-top: 2px;
+    margin-bottom: 4px;
+    height: 30px;
+    line-height: 30px;
+    background: url("images/header-page.jpg") no-repeat;
+}
+
+nav ul{
+    list-style: none;
+    margin: auto;
+}
+
+nav ul li{
+    display: inline-block;
+    padding: 0 20px;
+}
+
+nav ul li a{
+    text-align: left;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+nav ul li a:hover{
+    color:  black;
+}
+
+nav ul li:first-child a{
+    color: black;
+}
+
+main{
+    background-color: #ffffff;
+    height: 695px;
+}
+
+img{
+
+}
+
+.courses{
+    display: inline-block;
+    border-right: 1px solid #ccc;
+    height: 685px;
+}
+
+figure{
+    margin: 20px 20px 5px 20px;
+    padding: 5px 5px 10px 5px;
+    float: left;
+    border: 1px solid #ccc;
+}
+
+figcaption{
+    margin-top: 5px;
+    color: #606060;
+    font-weight: bold;
+}
+
+.courses article::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+article div{
+    padding-top: 30px;
+}
+
+article div h2 {
+    color: #606060;
+    font-size: 1.5em;
+    padding-bottom: 5px;
+}
+
+article div h3 {
+    color: #DCCBA0;
+    font-size: 1.2em;
+    padding-bottom: 5px;
+}
+
+article p {
+    font-size: 1.1em;
+    width: 626px;
+}
+
+aside{
+    display: inline-block;
+    width: 200px;
+    vertical-align: top;
+    padding-left: 20px;
+    padding-top: 30px;
+}
+
+aside h2{
+    color: #DC627E;
+}
+
+aside ul{
+    list-style: none;
+}
+
+aside ul li{
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+aside ul li a{
+    font-size: 17px;
+    color: #DC627E;
+    text-decoration: none;
+}
+
+
+
+footer{
+    padding: 10px 0;
+    margin-top: 2px;
+    vertical-align: bottom;
+    text-align: center;
+    background-color: gray;
+    color: #ffffff;
+}

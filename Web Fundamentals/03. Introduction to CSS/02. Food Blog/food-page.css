@@ -1,0 +1,85 @@
+@import url(https://fonts.google.com/selection?selection.family=Lato);
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Lato', sans-serif;
+}
+
+header{
+    background: url("images/header.jpg") no-repeat;
+    height: 195px;
+    text-align: center;
+}
+
+header h1{
+    text-align: center;
+    line-height: 195px;
+    color: #fff;
+}
+
+main{
+    margin: 20px 250px;
+    position: relative;
+}
+
+main article{
+    width: 720px;
+}
+
+main article h1{
+    margin-bottom: 10px;
+}
+
+main article img{
+    width: 720px;
+}
+
+main article p{
+    width: 720px;
+    font-size: 14px;
+}
+.date{
+    margin-bottom: 3px;
+}
+main article button{
+    background: none;
+    color: #ec5353;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ec5353;
+    border-radius: 20px;
+    padding: 10px 20px;
+}
+
+main article button:hover{
+    background: #ec5353;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+aside {
+    width: 400px;
+    float: right;
+    vertical-align: top;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+aside h1{
+    margin-bottom: 20px;
+}
+
+aside img{
+    height: 200px;
+    width: 400px;
+}
+
+aside p{
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
