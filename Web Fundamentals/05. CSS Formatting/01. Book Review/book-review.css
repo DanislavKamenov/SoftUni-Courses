@@ -1,0 +1,178 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,800);
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: linear-gradient(to bottom,
+    #567788 0%,#121f25 100%) no-repeat center center;
+    height: 100vh;
+    width: 99vw;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header{
+    height: 12%;
+}
+
+nav{
+    background-color: #eff4f7;
+    margin: 40px 30px;
+    height: 60%;
+}
+
+nav ul{
+    float: right;
+    margin: 20px;
+
+}
+
+nav ul li{
+    display: inline-block;
+    padding-left: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: #a4a8a9;
+}
+
+.br{
+    background: #EA3D51;
+    position: relative;
+    height: 150%;
+    width: 8%;
+    top: -20%;
+    left: 40%;
+    bottom: 65%;
+    text-align: center;
+    z-index: -1;
+    display: inline-block;
+}
+
+.br h1{
+    line-height: 490%;
+    text-transform: uppercase;
+    color: white;
+    font-size: 40px;
+}
+
+main, section.review, section.chapter{
+    margin: auto;
+}
+
+main{
+    height: 86%;
+    width: 90%;
+    background: #CBD0D9;
+}
+
+main h1{
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3rem;
+    position: relative;
+    z-index: 2;
+}
+
+main h5{
+    position: relative;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 5rem;
+    color: #6DFFB8;
+    left: 2%;
+    bottom: 8%;
+}
+
+img{
+    height: 20%;
+}
+
+section.review{
+    background: linear-gradient(to bottom,
+    #EB3A54 0%,#E7155C 100%) no-repeat center center;
+    box-sizing: border-box;
+    height: 45%;
+    width: 23%;
+    padding: 20px 30px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: white;
+    position: relative;
+    top: 3%;
+    z-index: 1;
+}
+
+section.review img{
+    border-radius: 50%;
+}
+
+section.review button{
+    background: none;
+    text-transform: uppercase;
+    border: 3px solid #70ecff;
+    padding: 10px 30px;
+    margin-top: 10px;
+    color: white;
+}
+
+section.review button:hover{
+    background: #70ecff;
+    border-color: #70ecff;
+    color: #348098;
+}
+
+.feedback:before, .feedback:after{
+    content: ' " ';
+    color: #af213d;
+    font-size: 30px;
+    font-weight: 800;
+
+}
+
+.rating{
+    font-size: 1.6rem;
+}
+
+section.chapter{
+    height: 45%;
+    width: 90%;
+    background: #FFFFFF;
+    position: relative;
+    bottom: 20%;
+    text-align: left;
+    padding: 0 0 20px 20px;
+}
+
+section.chapter p{
+    position: relative;
+    top: 55%;
+    width: 55%;
+}
+
+section.chapter h3{
+    position: relative;
+    top: 50%;
+    font-size: 2rem;
+    color: #46EE97;
+}
+
+section.chapter button{
+    position: absolute;
+    top: 85%;
+    text-transform: uppercase;
+    background: none;
+    border: 3px solid #628291;
+    font-size: 0.8rem;
+    padding: 10px 25px;
+    color: #333333;
+}
+
+section.chapter button:hover{
+    background: #628291;
+    cursor: Pointer;
+    color: #6dffb8;
+}
