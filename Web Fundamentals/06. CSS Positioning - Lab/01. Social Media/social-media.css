@@ -1,0 +1,73 @@
+body{
+    background: #292929;
+}
+
+footer{
+    text-align: center;
+}
+
+section{
+    display: inline-block;
+    vertical-align: top;
+}
+
+h2{
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-align: left;
+}
+li{
+    text-align: left;
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+    margin-right: 50px;
+}
+
+ul li a{
+    text-decoration: none;
+    font-size: 35px;
+    text-transform: capitalize;
+    color: #BBB78E;
+}
+
+div{
+    display: inline-block;
+    height: 60px;
+    width: 75px;
+    background: url("images/social.jpg");
+}
+
+.linkedin{
+    background-position: 647px 0;
+}
+
+.youtube{
+    background-position: 327px 0;
+}
+
+.twitter{
+    background-position: -64px 0;
+}
+
+.facebook:hover{
+    background-position: 0 60px;
+    cursor: pointer;
+}
+
+.linkedin:hover{
+    background-position: 647px 60px;
+    cursor: pointer;
+}
+
+.youtube:hover{
+    background-position: 327px 60px;
+    cursor: pointer;
+}
+
+.twitter:hover{
+    background-position: -64px 60px;
+    cursor: pointer;
+}

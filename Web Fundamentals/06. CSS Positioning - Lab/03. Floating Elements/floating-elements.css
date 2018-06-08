@@ -1,0 +1,27 @@
+body{
+    font-size: 30px;
+    width: 600px;
+    margin: auto;
+}
+
+div{
+    background: #6495ED;
+    width: 250px;
+    height: 100px;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 100px;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.center{
+    background: #6495ED;
+    margin: auto;
+}
