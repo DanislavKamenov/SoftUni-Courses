@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Doner Place</title>
+    <link href="/public/css/site.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+    {{#if globalError}}
+        <div class="error"><p>{{globalError}}</p></div>
+    {{/if}}
+    <div class="container">
+        <header>
+            <span class="logo">Doner  Place</span>
+            {{#if user}}
+              <span class="greeting">Welcome, {{user.username}}! | <a href="/users/logout">[logout]</a></span>
+            {{else}}
+              <span class="greeting">Welcome, anonymous! | <a href="/users/register">Register</a>| <a href="/users/login">Login</a></span>
+            {{/if}}
+            <ul class="menu">
+				<li><a class="button" href="/index.html">Home</a></li>
+            {{#if user}}                
+            {{#unless user.isAdmin}}
+                <li><a class="button" href="/orders/my-orders">My Orders</a></li>
+            {{/unless}}				
+            {{#if user.isAdmin}}
+                <li><a class="button" href="/orders/all-orders">All Orders</a></li>
+                <li><a class="button" href="/products/create">Create Product</a></li>
+            {{/if}}			
+            {{/if}}
+            {{#unless user}}
+                <li><a class="button" href="/users/login.html">Login</a></li>
+                <li><a class="button" href="/users/register.html">Register</a></li>
+            {{/unless}}
+            </ul>
+        </header>
+        <main>
+          {{{body}}}
+        </main>
+        <footer>Doner Place &copy; 2017</footer>
+    </div>
+</body>
+</html>

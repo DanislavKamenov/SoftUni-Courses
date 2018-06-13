@@ -1,0 +1,39 @@
+<h1>Order details</h1>
+            <div class="catalog">
+                <div class="column">
+                    <img src="{{order.product.image}}">
+                </div>
+                <div class="column">
+                    <h2>{{order.product.category.name}} doner, {{order.product.size}} cm</h2>
+                    <h3>From 22.Oct 2017 10:35</h3>
+                    {{#each order.toppings}}
+                    <div class="toppings">
+                        {{this}}<br>                        
+                    </div>
+                    {{/each}}
+                </div>
+                <div class="status">
+                    <div class="status-block">
+                        <span class="progress-right"></span>
+                        <span class="checkpoint {{#eq order.status 'Pending'}}current{{/eq}}"></span><br>
+                        Pending
+                    </div>
+                    <div class="status-block">
+                        <span class="progress-left"></span>
+                        <span class="progress-right"></span>
+                        <span class="checkpoint {{#eq order.status 'In Progress'}}current{{/eq}}"></span><br>
+                        In progress
+                    </div>
+                    <div class="status-block">
+                        <span class="progress-left"></span>
+                        <span class="progress-right"></span>
+                        <span class="checkpoint {{#eq order.status 'In Transit'}}current{{/eq}}"></span><br>
+                        In transit
+                    </div>
+                    <div class="status-block">
+                        <span class="progress-left"></span>
+                        <span class="checkpoint {{#eq order.status 'Delivered'}}current{{/eq}}"></span><br>
+                        Delivered
+                    </div>
+                </div>
+            </div>
