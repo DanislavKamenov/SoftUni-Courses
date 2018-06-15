@@ -12,11 +12,11 @@ module.exports = {
                 let salt = encryption.generateSalt();
                 let hashedPass = encryption.generateHashedPassword(salt, '123');
                 let admin = {
-                    username: 'Danisimo',
+                    username: 'Admin',
                     password: hashedPass,
                     salt: salt,
-                    firstName: 'Denk',
-                    lastName: 'Denkov',
+                    firstName: 'Admin',
+                    lastName: 'Adminov',
                     age: 24,
                     roles: roles[0]._id
                 };
