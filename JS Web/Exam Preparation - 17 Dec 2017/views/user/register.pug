@@ -1,0 +1,14 @@
+extends ../layouts/main
+
+block content
+    h2 Create your accout:
+    form(action='/user/register', method='post')
+        label Name:
+        input(type='text', name='name', value=name, placeholder='Name')
+        label Email:
+        input(type='email', name='email', value=email, placeholder='Email')
+        label Password:
+        input(type='password', name='password' placeholder='Password')
+        label Repeat Password:
+        input(type='password', name='repeatPassword', placeholder='Repeat Password')
+        input.register(type='submit', value='Register')
