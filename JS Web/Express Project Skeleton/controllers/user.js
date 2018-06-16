@@ -51,7 +51,7 @@ function registerPost(req, res) {
             req.login(user, err => {
                 if (err) {
                     req.flash('error', 'Authentication Failed!');
-                    return res.render('/user/login', userToRegister);
+                    return res.render('user/login', userToRegister);
                 }               
                 res.redirect('/');
             });            

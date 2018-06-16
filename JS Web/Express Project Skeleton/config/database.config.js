@@ -18,7 +18,10 @@ module.exports = (config) => {
             if (!coll) {
                 //This seeds admin user and roles if there is no Database.
                 //If you want to reseed the data please DROP the current Database.
-                seeder.seedRolesAndAdmin();               
+                seeder.seedRolesAndAdmin()
+                    .then(() => {
+                        seeder.seedUser('pesho', '123', ['User']);
+                    });
             }
         });
     }).on('error', err => {

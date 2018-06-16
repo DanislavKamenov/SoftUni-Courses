@@ -18,12 +18,10 @@ const userSchema = mongoose.Schema({
         required: propertyIsRequired.replace('{0}', 'Salt'),
     },
     firstName: {
-        type: mongoose.SchemaTypes.String,
-        required: propertyIsRequired.replace('{0}', 'First Name')
+        type: mongoose.SchemaTypes.String        
     }, 
     lastName: {
-        type: mongoose.SchemaTypes.String,
-        required: propertyIsRequired.replace('{0}', 'Last Name'),
+        type: mongoose.SchemaTypes.String      
     },
     age: {
         type: mongoose.SchemaTypes.Number,        
@@ -58,9 +56,7 @@ userSchema.statics.validateAndRegister = function(user) {
                 user.roles = [role._id];
                 User
                     .create(user)
-                    .then(createdUser => {                        
-                        role.users.push(createdUser._id);
-                        role.save();
+                    .then(createdUser => {
                         resolve(createdUser);
                     })
                     .catch(err => {
