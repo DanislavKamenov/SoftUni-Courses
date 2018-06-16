@@ -1,0 +1,10 @@
+extends ../layout
+    
+block content
+    .content       
+        h1 Wellcome to our Car Renting Service!
+        if user
+            h2 Greetings #{user.username}, looking to rent or list a car? You have full access to our website!
+        else
+            h2 Greetings Guest, feel free to browse our collection of available vehicles or register/login to access the full features of our website.
+        p Take advantage of the world's best car renting service. All our vehicles pass trough a pre screening process and our professional designers employ cutting edge technology to make our application as soomth and as easy-to-use as possible.
