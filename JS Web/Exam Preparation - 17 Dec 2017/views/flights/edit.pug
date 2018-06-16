@@ -1,0 +1,21 @@
+extends ../layouts/main
+
+block content
+    h2 Edit flight
+    form(action=`/flights/edit/${_id}`, method='post')
+        label Destination:
+        input(type='text', name='destination', placeholder='Destination', value=destination)
+        label Origin:
+        input(type='text', name='origin', placeholder='Origin', value=origin)
+        label Date:
+        input(type='date' name='departureDate', value=`${departureDate.getDate()}-${departureDate.getMonth()}-${departureDate.getFullYear()}`)
+        label Time:
+        input(type='time' name='departureTime', value=departureTime)
+        label Image:
+        input(type='text' name='image', value=image)
+        label Public:
+        if public === true
+            input(type='checkbox', checked)
+        else
+            input(type='checkbox')
+        input.save-changes(type='submit' value='Save Changes')
