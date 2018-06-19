@@ -7,9 +7,9 @@
                             <h3>{{title}}</h3>
                             <p>
                                 {{#withLast edits}}
-                                    {{content}}&hellip;
-                                {{/withLast}}
-                            </p>
+                                    {{content}}&hellip; 
+                                {{/withLast}}                                
+                            </p>                            
                             <div class="controls">
                                 <a href="articles/{{_id}}">Read more</a>
                             </div>
@@ -23,7 +23,9 @@
                         {{#each articles}}
                             <li>
                                 <a href="articles/{{_id}}">{{title}}</a>
-                            </li> 
+                            </li>
+                        {{else}}
+                            <p>No articles in Database!</p>
                         {{/each}}                       
                     </ul>                        
                 </section>

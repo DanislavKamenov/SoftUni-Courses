@@ -24,6 +24,11 @@ function createPost(req, res) {
                     article.edits.push(edit._id);
                     article.save();
                     res.redirect('/');
+                })
+                .catch(err => {
+                    console.log(err);
+                    req.flash('error', 'Could not create article!');
+                    res.redirect('/articles/create');
                 });
         })
         .catch(err => {
@@ -35,13 +40,11 @@ function createPost(req, res) {
 
 function allGet(req, res) {
     Article.find()        
+        .collation({locale:'en'})
+        .sort('title')        
         .then(articles => {
-            if (articles.length > 0) {
-                articles.sort((a, b) => a.title.localeCompare(b.title));
-                res.render('articles/all', {articles});
-                return;
-            }
-            res.render('articles/all');
+                      
+            res.render('articles/all', {articles});
         });
 }
 

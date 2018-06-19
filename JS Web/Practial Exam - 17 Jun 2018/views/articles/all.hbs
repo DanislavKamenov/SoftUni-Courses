@@ -6,7 +6,9 @@
                             {{#each articles}}
                                 <li>
                                     <a href="/articles/{{_id}}">{{title}}</a>
-                                </li>                            
+                                </li>
+                            {{else}}
+                                <p>There are no articles in the database!</p>                           
                             {{/each}}
                         </ul>
                     </div>
