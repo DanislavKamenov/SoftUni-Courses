@@ -15,6 +15,11 @@ let editSchema = mongoose.Schema({
     }
 });
 
+editSchema.virtual('contents')
+    .get(function() {
+        return this.content.split(/\r\n|\r|\n/g).filter(c => c !== '');
+    });
+
 let Edit = mongoose.model('Edit', editSchema);
 
 module.exports = Edit;

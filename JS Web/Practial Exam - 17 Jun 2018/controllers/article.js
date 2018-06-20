@@ -9,7 +9,12 @@ function createGet(req, res) {
 
 function createPost(req, res) {
     let articleData = req.body;
-    let creator = req.user;    
+    let creator = req.user;
+
+    if (!articleData.title || !articleData.content) {
+        req.flash('error', 'Empty fields are not allowed!');
+        return res.redirect('/articles/create');
+    }
 
     Article.create({title: articleData.title})
         .then(article => {
@@ -53,8 +58,7 @@ function singleArticleGet(req, res) {
 
     Article.findById(articleId)
         .populate('edits')
-        .then(article => {
-            article.edits.map( e => e.contents = e.content.split(/\r\n|\r|\n/g).filter(c => c !== ''));
+        .then(article => {           
             res.render('articles/article', article);
         })
         .catch(err => {
@@ -118,8 +122,7 @@ function latestGet(req, res) {
                 res.redirect('/');
                 return;
             }
-            let article = articles[0];
-            article.edits.map( e => e.contents = e.content.split(/\r\n|\r|\n/g).filter(c => c !== ''));
+            let article = articles[0];           
             res.render('articles/article', article);
         })
         .catch(err => {
@@ -157,8 +160,7 @@ function historyEditGet(req, res) {
                 res.redirect('/articles/all');
                 return;
             }
-
-            edit.contents = edit.content.split(/\r\n|\r|\n/g).filter(c => c !== '');
+            
             let article = {
                 _id: edit.article._id,
                 title: edit.article.title,
