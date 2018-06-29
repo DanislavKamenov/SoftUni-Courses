@@ -1,0 +1,24 @@
+extends ../layout
+
+block content
+    .content
+        h1 Profile
+        section
+            h2 Username: #{username}
+        section
+            h2 Rent history
+            table
+                thead
+                    tr
+                        td Car
+                        td Duration
+                tbody
+                    each car in carsRented
+                        tr
+                            td=car.model
+                            td #{car.rentDuration} days
+                if carsRented.length === 0     
+                    tr                
+                        td(colspan='2')                
+                            i No rent history. 
+                            a(href='/cars/all') Rent now

@@ -1,0 +1,17 @@
+extends ../layouts/main
+
+block content
+    h3 Your Flights
+    each ticket in paidTickets
+        section.purchased-ticket
+            .purchased-left
+                img(src=`${ticket.flight.image}` alt='')
+            .purchased-right
+                div
+                    h3 #{ticket.flight.destination}
+                    span #{ticket.flight.departureDate.toLocaleDateString('en-GB')}
+                div
+                    | from #{ticket.flight.origin} 
+                    span #{ticket.flight.departureTime}
+                each seat in ticket.seatsInfo
+                    p #{seat.ammount} x #{seat.price}$(#{seat.type})

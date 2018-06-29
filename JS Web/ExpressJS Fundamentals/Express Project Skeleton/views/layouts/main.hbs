@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <link id="bootstrap-css" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/styles/style.css"/>
+    <title>Document</title>
+  </head>  
+  <body>
+  <header>
+    <nav class="nav-left">
+      <ul class="menu">
+        <li><a href="/">Home</a></li>
+        {{#if user.isAdmin}}
+            <li><a href="/cars/add">Add New Car</a></li>
+        {{/if}}
+        <li><a href="/cars/all">Available Cars</a></li>
+      </ul>
+    </nav>
+    <aside class="nav-right">
+      <ul class="menu">
+        {{#if user}}
+            <li><a href="/user/profile">{{user.username}}</a></li>
+            <li><a href="/user/logout">logout</a></li>
+        {{else}}
+            <li><a href="/user/login">Login</a></li>
+            <li><a href="/user/register">Register</a></li>
+        {{/if}}
+      </ul>
+    </aside>
+  </header>
+  <main>  
+        {{#if messages.error}}
+            <div class="error-box"><span>{{messages.error}}</span></div>
+        {{else if messages.success}}
+            <div class="success-box"><span>{{messages.success}}</span></div>
+        {{/if}}
+        {{{body}}}
+  </main>
+  <footer>
+    <p>&copy; Denkata's Car Renting Service.</p>
+  </footer>
+  </body>
+</html>

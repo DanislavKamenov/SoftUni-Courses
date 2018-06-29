@@ -1,0 +1,22 @@
+extends ../layouts/main
+
+block content
+    each ticket in cart.tickets
+        section.single-ticket
+            .left-ticket-container
+                img.destination-img(src=`${ticket.flight.image}`, alt='')
+                .flight-parameters
+                each seat in ticket.seatsInfo
+                    span.ticket-price Price: #{seat.price}$
+                    span.ticket-class Class: #{seat.type}
+            .right-ticket-container
+                h2  #{ticket.flight.destination}
+                p from #{ticket.flight.origin}
+                p #{ticket.flight.departureDate.toLocaleDateString('en-GB')}
+                p #{ticket.flight.departureTIme}
+                div
+                span.number-of-tickets #{ticket.totalAmmount}
+                a.remove(href=`/cart/remove/${ticket._id}`) REMOVE
+        section.ticket-checkout
+            .total Sub total: #{ticket.subTotal}$
+            a.checkout(href=`/cart/checkout/${ticket._id}`) Checkout

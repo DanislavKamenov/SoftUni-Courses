@@ -1,0 +1,17 @@
+extends ../layouts/main
+
+block content
+    .col-md-4
+        .login-panel.panel.panel-default
+            .panel-heading
+                h3.panel-title Sign In
+            .panel-body
+                form(role='form', action='/user/login', method='post')
+                    fieldset
+                        .form-group
+                            input.form-control(placeholder='Username', name='username', type='text', value=username autofocus='')
+                        .form-group
+                            input.form-control(placeholder='Password', name='password', type='password', value='')  
+                        input.btn.btn-sm.btn-success(type="submit", value='Login')
+    br      
+

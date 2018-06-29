@@ -1,0 +1,27 @@
+<h1>Welcome to Doner Place!</h1>
+            <p>We offer a wide variety of tasty doner kebab, cutosmized to your liking. Choose from different sizes of chicken, beef and lamb and any topping you want. Place your order now!</p>
+            <div class="products">
+            {{#if user.isAdmin}}
+				<h2>Admin</h2>
+				<div class="product-card">
+					<img src="/public/img/new.png">
+					<a href="/products/create" class="button product-title">Create Product </a>
+				</div>
+            {{/if}}                     
+            {{#each categories}}
+                <h2>{{name}} Doner</h2>
+                {{#each products}}
+                <div class="product-card">
+                <img src="{{image}}">
+                {{#if ../../user.isAdmin}}
+                    <a href="/products/edit/{{_id}}" class="control"><img class="control-img" src="/public/img/edit.png"></a>
+                    <a href="/products/delete/{{_id}}" class="control"><img class="control-img" src="/public/img/delete.png"></a>
+                {{else}}
+                        <a href="/orders/customize/{{_id}}" class="button product-title">Order</a>
+                {{/if}}            
+			</div>
+                {{/each}}
+            {{/each}}
+           
+                
+            
