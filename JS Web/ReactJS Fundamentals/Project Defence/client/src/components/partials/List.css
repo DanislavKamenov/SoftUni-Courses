@@ -1,0 +1,14 @@
+.pokemon {
+    background: white;
+    border-radius: 20px;
+    margin:20px 10px 0 0;
+    height: 300px;
+    width: 400px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pokemon-image {
+    max-width: 300px;
+    max-height: 200px;    
+}
