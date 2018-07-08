@@ -7,7 +7,7 @@ const withErrorMessage = (WrappedComponent) => class WithErrorMessage extends Co
             message: '',
             errors: ''
         }        
-    }
+    }    
 
     getErrors = (res) => this.setState({message: res.message || '', errors: res.errors || ''});
 

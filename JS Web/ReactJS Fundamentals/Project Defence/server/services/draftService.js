@@ -1,5 +1,6 @@
 const Draft = require('../models/Draft');
 const crud = require('../infrastructure/crud');
+const Map = require('../models/Map');
 
 const draftCrud = crud(Draft);
 

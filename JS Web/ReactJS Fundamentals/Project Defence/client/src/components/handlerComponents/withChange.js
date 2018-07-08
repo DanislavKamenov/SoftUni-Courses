@@ -9,8 +9,7 @@ const withChange = (WrappedComponent) => class WithChange extends Component {
 
     handleChange = (e) => {
 
-        const { name, value } = e.target;
-        console.log(name, value);
+        const { name, value } = e.target;        
         this.setState({ [name]: value });
     }
     

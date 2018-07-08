@@ -1,53 +1,76 @@
-import React from 'react';
+import React, { Component, Children } from 'react';
 import './Form.css';
-import withChange from '../handlerComponents/withChange';
-import withSubmit from '../handlerComponents/withSubmit';
-import withContent from './withContent';
+import webApi from '../../webModule/webApi';
 import withErrorMessage from './../handlerComponents/withErrorMessage';
-import { withRouter } from 'react-router-dom';
-import { compose } from 'recompose';
 
-const Form = ({ formType, fields, handleChange, handleSubmit, message, errors }) => {
-    const formBody = fields.map((f, idx) =>
-        <div key={idx} className='form-group'>
-            <label className='control-label col-sm-4' htmlFor={f.name}>{f.val}</label>
-            <input name={f.name} id={f.name} className='form-control' type={f.type} onChange={handleChange} />
-            {errors && <span className='error'>{errors[f.name]}</span>}
-        </div>
-    );
+class BoundForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = stateFromChildren(this.props.children);
+    }
 
-    return (
-        <div className={formType + '-panel panel-default col-md-4 border'}>
-            <div className="panel-heading">
-                <h1 className='panel-title'>{formType}</h1>
+    handleChange = (e) => {
+        const { name, value } = e.target;
+        this.setState({ [name]: value });
+    }
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(this.state);
+        webApi.post(this.props.endPoint, this.state)
+        .then((res) => {        
+            this.props.onSubmit(res);
+        })
+        .catch(err => {
+            this.props.getErrors(err);
+            console.log(err);
+        });       
+    }
+
+    render() {
+        return (
+            <div className={'form-panel panel-default col-md-4 border'}>
+                <div className="panel-heading">
+                    <h1 className='panel-title'>{this.props.formTitle}</h1>
+                </div>
+                <div className='panel-body'>
+                    <form className={'form'} onSubmit={this.handleSubmit}>
+                        <fieldset>
+                            <span className='error'>{this.props.message}</span>
+                            {Children.map(this.props.children, child => {                                 
+                                if (shouldHaveState(child)) {
+                                    return <input onChange={this.handleChange} value={this.state[child.props.name]} {...child.props} />
+                                }
+                                if (isErrorField(child)) {
+                                    return <span {...child.props}>{this.props.errors[child.props['data-name']]}</span>
+                                }
+                                return child;
+                            })}
+                        </fieldset>
+                    </form>
+                </div>
             </div>
-            <div className='panel-body'>
-                <form className={formType + '-form'} onSubmit={handleSubmit}>
-                    <fieldset>
-                        <span className='error'>{message}</span>
-                        {formBody}
-                        <input name='submit' id='submit' className='btn btn-sm btn-success' type='submit' value='submit' />
-                    </fieldset>
-                </form>
-            </div>
-        </div>
-    );
+        );
+    }
 };
 
-const LoginForm = compose(    
-    withContent('LoginForm'),
-    withErrorMessage,
-    withChange,
-    withRouter,
-    withSubmit    
-)(Form);
+function shouldHaveState(child) {
+    return child.type === 'input' && child.props.name;
+}
 
-const RegisterForm = compose(    
-    withContent('RegisterForm'),
-    withErrorMessage,
-    withChange,
-    withRouter,
-    withSubmit
-)(Form);
+function isErrorField(child) {
+    return child.type === 'span' && child.props.className === 'error';
+}
 
-export { LoginForm, RegisterForm };
+function stateFromChildren(chidren) {
+    const inputs = {};
+    Children.forEach(chidren, child => {
+        if (shouldHaveState(child)) {
+            inputs[child.props.name] = '';
+        }
+    });
+
+    return inputs;
+}
+
+export default withErrorMessage(BoundForm);

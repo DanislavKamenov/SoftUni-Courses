@@ -10,7 +10,7 @@ const userSchema = mongoose.Schema({
     },
     name: {
         type: mongoose.SchemaTypes.String,
-        required: propertyIsRequired.replace('{0}', 'Name'),        
+        required: propertyIsRequired.replace('{0}', 'Name'),
     },
     password: {
         type: mongoose.SchemaTypes.String,
@@ -19,27 +19,30 @@ const userSchema = mongoose.Schema({
     salt: {
         type: mongoose.SchemaTypes.String,
         required: propertyIsRequired.replace('{0}', 'Salt'),
-    },    
+    },
     roles: [{
         type: mongoose.SchemaTypes.ObjectId, ref: 'Role',
         required: propertyIsRequired.replace('{0}', 'Role'),
-    }]    
+    }]
 });
 
 userSchema.method({
-    authenticate: function(password) {
+    authenticate: function (password) {
         let hashedPassword = encryption.generateHashedPassword(this.salt, password);
 
         if (hashedPassword === this.password) {
             return true;
         }
         return false;
-    } 
+    }
 });
 
-userSchema.pre('validate', function(next) {
-    this.salt = encryption.generateSalt();
-    this.password = encryption.generateHashedPassword(this.salt, this.password);
+userSchema.pre('validate', function (next) {
+    if (!this.salt) {
+        this.salt = encryption.generateSalt();
+        this.password = encryption.generateHashedPassword(this.salt, this.password);
+        return next();
+    }
     next();
 });
 

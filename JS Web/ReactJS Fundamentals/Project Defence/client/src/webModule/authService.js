@@ -1,8 +1,5 @@
 import jwtDecode from 'jwt-decode';
-import webApi from './webApi';
-
-const loginEndPoint = 'auth/login';
-const registerEndPoint = 'auth/signup';
+import observer from '../infrastructure/observer';
 
 function isTokenExpired(token) {
     // Check if token is expired
@@ -18,9 +15,9 @@ function isTokenExpired(token) {
         return false;
     }
 }
-function setToken(idToken) {
+function setToken(token) {
     // Saves user token to localStorage
-    localStorage.setItem('token', idToken)
+    localStorage.setItem('token', token)
 }
 function getToken() {
     // Retrieves the user token from localStorage
@@ -29,40 +26,19 @@ function getToken() {
 
 export default {
     // LogIn user and handle server response
-    logIn: ({ email, password }) =>
-        new Promise((resolve, reject) =>
-            webApi.post(loginEndPoint, { email, password })
-                .then((res) => {
-                    if (res.success) {
-                        setToken(res.token);
-                        resolve(res);
-                    } else {
-                        reject(res)
-                    }
-                })
-                .catch(reject)
-        ),
-    // Register user and handle server response
-    register: (user) =>
-        new Promise((resolve, reject) => 
-            webApi.post(registerEndPoint, user, setToken)
-                .then((res) => {
-                    if (res.success) {
-                        setToken(res.token);
-                        resolve(res);
-                    } else {
-                        reject(res)
-                    }
-                })
-                .catch(reject)
-        ),
-    // Check if user is loggedIn       
-    loggedIn: () => {         
+    logIn: (res) => {
+        setToken(res.token);
+        observer.trigger(observer.events.loginUser, res);
+    },    
+    loggedIn: () => {
         const token = getToken()
         return !!token && !isTokenExpired(token)
     },
     // Clear user token and profile data from localStorage
-    logout: () => localStorage.removeItem('token'),
+    logout: () => {
+        localStorage.removeItem('token')
+        observer.trigger(observer.events.logoutUser);
+    },
     // Get current user profile
     // Returns empty object to allow checks like jwtDecode(getToken()).user.name === 'undefined'
     getProfile: () => getToken() ? jwtDecode(getToken()).user : {},
